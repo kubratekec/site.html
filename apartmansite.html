@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Site İstek &amp; Şikayet Yönetim Sistemi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --panel: #ffffff;
+      --text: #1f2933;
+      --muted: #52606d;
+      --primary: #2563eb;
+      --accent: #f97316;
+      --border: #e5e7eb;
+      --radius: 16px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at 20% 20%, #eef2ff, #f8fafc 35%), var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 32px 12px 64px;
+    }
+    .page { max-width: 1100px; margin: 0 auto; }
+    header { display: grid; gap: 12px; margin-bottom: 28px; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #e0e7ff;
+      color: #1d4ed8;
+      font-weight: 600;
+      width: fit-content;
+    }
+    h1 { margin: 0; font-size: clamp(28px, 4vw, 38px); letter-spacing: -0.02em; }
+    p.lead { margin: 0; color: var(--muted); max-width: 760px; }
+    section {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 20px;
+      margin-bottom: 18px;
+      box-shadow: 0 15px 35px rgba(31, 41, 55, 0.08);
+    }
+    section h2 {
+      margin: 0 0 14px;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .card {
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: linear-gradient(135deg, #ffffff 0%, #f9fbff 100%);
+      display: grid;
+      gap: 4px;
+    }
+    .card b { color: #111827; }
+    ul { margin: 8px 0 0 18px; color: var(--muted); padding: 0; }
+    li { margin-bottom: 6px; }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      font-weight: 600;
+      font-size: 13px;
+    }
+    .timeline { display: grid; gap: 10px; }
+    .step {
+      display: grid;
+      gap: 4px;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px dashed #cbd5e1;
+      background: #f8fafc;
+    }
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 6px;
+    }
+    .table th, .table td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+    }
+    .table th { color: #111827; }
+    .tag {
+      display: inline-flex;
+      padding: 3px 8px;
+      border-radius: 10px;
+      background: #ecfeff;
+      color: #0ea5e9;
+      font-weight: 700;
+      font-size: 12px;
+      border: 1px solid #bae6fd;
+    }
+    .question {
+      margin-bottom: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      color: #9a3412;
+    }
+    @media (max-width: 640px) {
+      body { padding: 18px 10px 48px; }
+      section { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <span class="badge">🛠️ Site İstek &amp; Şikayet Yönetim Sistemi</span>
+      <h1>Site sakinleri, personel ve yönetim için uçtan uca takip</h1>
+      <p class="lead">Talep/şikayet oluşturma, atama, müdahale, geri bildirim ve raporlama süreçleri tek ekranda. Aşağıdaki taslak, ilk sürüm için gereksinimleri ve veri modelini özetler.</p>
+    </header>
+
+    <section id="actors">
+      <h2>👤 Aktörler (Roller)</h2>
+      <div class="grid">
+        <div class="card"><b>Site Sakini (Resident)</b><span class="pill">Talep &amp; Durum Takibi</span><ul><li>Talep/şikayet oluşturur, süreci izler.</li><li>Anket ve memnuniyet puanlaması yapar.</li></ul></div>
+        <div class="card"><b>Yönetici (Admin)</b><span class="pill">Görüntüle &amp; Ata</span><ul><li>Tüm talepleri görür, ilgili personele atar.</li><li>Analiz/raporları ve duyuruları yönetir.</li></ul></div>
+        <div class="card"><b>Personel (Staff)</b><span class="pill">Müdahale &amp; Kapat</span><ul><li>Kendine atanan işleri çözer.</li><li>İşi tamamlandığında durumu günceller.</li></ul></div>
+      </div>
+    </section>
+
+    <section id="entities">
+      <h2>🧱 Temel Varlıklar</h2>
+      <div class="grid">
+        <div class="card"><b>Konum Hiyerarşisi</b><ul><li>Site → Blok → Kat → Daire</li></ul></div>
+        <div class="card"><b>Talep Kategorileri</b><ul><li>Arıza (Elektrik/Su), Temizlik, Güvenlik, Gürültü, Öneri/İstek</li></ul></div>
+        <div class="card"><b>Talep Durumları</b><ul><li>Yeni, İşlemde, Beklemede, Çözüldü, İptal</li></ul></div>
+      </div>
+    </section>
+
+    <section id="workflow">
+      <h2>🔁 Süreç &amp; İş Akışı</h2>
+      <div class="timeline">
+        <div class="step"><b>1. Talep Oluşturma</b>Site sakini web arayüzünden talep/şikayet açar; blok/daire otomatik dolar, kategori seçer, açıklama ve fotoğraf ekler.</div>
+        <div class="step"><b>2. Triyaj ve Atama</b>Yönetici kategori veya konuma göre ilgili personele atar. İsteğe bağlı otomatik atama.</div>
+        <div class="step"><b>3. Müdahale</b>Personel bildirimi alır, müdahale eder, “Çözüldü” notu düşer.</div>
+        <div class="step"><b>4. Onay &amp; Geri Bildirim</b>Site sakinine “Sorununuz giderildi” iletisi gider; sakin memnuniyet anketi (1-5) doldurur.</div>
+        <div class="step"><b>5. Raporlama</b>Yönetici dashboard üzerinden analiz ve SLA takibi yapar.</div>
+      </div>
+    </section>
+
+    <section id="bi">
+      <h2>📊 Analiz &amp; Raporlama (BI)</h2>
+      <div class="grid">
+        <div class="card"><b>Isı Haritası</b><ul><li>En çok şikayet gelen blok/daire dağılımı.</li></ul></div>
+        <div class="card"><b>Kategori Analizi</b><ul><li>Kırılımlar: %40 asansör, %20 temizlik, vb.</li></ul></div>
+        <div class="card"><b>Personel Performansı</b><ul><li>İşleri ortalama kapatma süresi.</li></ul></div>
+        <div class="card"><b>SLA Takibi</b><ul><li>Çözüm süresi (örn. 24s hedefi) uyumu.</li></ul></div>
+      </div>
+    </section>
+
+    <section id="db">
+      <h2>🗄️ Veritabanı Taslağı</h2>
+      <div class="card">
+        <b>Önerilen ilişkisel yapılar:</b>
+        <ul>
+          <li>Users (ID, Ad, Rol, Tel, Email)</li>
+          <li>Properties (ID, Blok_Adı, Daire_No, User_ID)</li>
+          <li>Tickets (ID, Property_ID, Kategori, Öncelik, Durum, Oluşturma_Tarihi)</li>
+          <li>Ticket_Logs (ID, Ticket_ID, İşlem_Yapan, Yapılan_İşlem, Tarih)</li>
+        </ul>
+      </div>
+      <table class="table">
+        <thead><tr><th>Tablo</th><th>Kilit Alanlar</th><th>Not</th></tr></thead>
+        <tbody>
+          <tr><td><span class="tag">Blocks</span></td><td>id (PK), block_name, total_floors</td><td>Lokasyon başlangıcı.</td></tr>
+          <tr><td><span class="tag">Apartments</span></td><td>id (PK), block_id (FK), floor_number, door_number, type</td><td>Daire detayları.</td></tr>
+          <tr><td><span class="tag">Users</span></td><td>id (PK), full_name, email (U), phone, role, is_active</td><td>Roller: Admin/Staff/Resident.</td></tr>
+          <tr><td><span class="tag">Occupancy</span></td><td>id (PK), user_id (FK), apartment_id (FK), type, start_date</td><td>Kim nerede oturuyor takibi.</td></tr>
+          <tr><td><span class="tag">Categories</span></td><td>id (PK), name, sla_hours</td><td>Elektrik, Su, Temizlik, Güvenlik…</td></tr>
+          <tr><td><span class="tag">Tickets</span></td><td>id (PK), user_id, apartment_id, category_id, title, description, priority, status, created_at, closed_at, satisfaction_score</td><td>Durum: Open, Assigned, In_Progress, Pending, Resolved, Closed.</td></tr>
+          <tr><td><span class="tag">Ticket_Actions</span></td><td>id (PK), ticket_id, user_id, action_type, description, created_at</td><td>Log: StatusChange, Comment, Assignment.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="questions">
+      <h2>❓ Tasarımı Netleştiren Sorular</h2>
+      <div class="question"><b>Kayıt Modeli:</b> Site sakinlerini kim kayıt edecek? Güvenlik için davet mi kullanılacak?</div>
+      <div class="question"><b>Kiracı / Ev Sahibi Ayrımı:</b> Aynı dairede çoklu kullanıcı mümkün mü? Analiz için hangi kimlik önemli?</div>
+      <div class="question"><b>Şeffaflık Seviyesi:</b> Sakinler diğer sakinlerin taleplerini veya genel sorunları görebilsin mi?</div>
+      <div class="question"><b>Bildirim Kanalları:</b> Web yanında SMS / e-posta bildirim gerekli mi?</div>
+      <div class="question"><b>Mobil Uyumluluk:</b> Responsive web yeterli mi, yoksa ayrı mobil uygulama planlanıyor mu?</div>
+    </section>
+  </div>
+</body>
+</html>
+
