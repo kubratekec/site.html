@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Randevularım</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-3xl font-bold">Randevularım</h1>
+            <button id="logoutBtn" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Çıkış Yap</button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Randevu Formu -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">Yeni Randevu Oluştur</h2>
+                <div class="mb-4">
+    <label class="block text-gray-700 mb-2">Tarih</label>
+    <input type="date" id="appointmentDate" class="w-full p-2 border rounded">
+</div>
+
+      <div class="mb-4">
+    <label class="block text-gray-700 mb-2">Saat</label>
+    <select id="appointmentTime" class="w-full p-2 border rounded">
+        <option value="09:00">09:00</option>
+        <option value="10:00">10:00</option>
+        <option value="11:00">11:00</option>
+        <option value="13:00">13:00</option>
+        <option value="14:00">14:00</option>
+        <option value="15:00">15:00</option>
+        <option value="16:00">16:00</option>
+        <option value="17:00">17:00</option>
+    </select>
+</div>
+
+       <div class="mb-4">
+    <label class="block text-gray-700 mb-2">Hizmet Türü</label>
+    <select id="serviceType" class="w-full p-2 border rounded">
+        <optgroup label="Kişisel Bakım">
+            <option value="Kuaför">Kuaför</option>
+            <option value="Berber">Berber</option>
+            <option value="Güzellik Merkezi">Güzellik Merkezi</option>
+            <option value="Cilt Bakımı">Cilt Bakımı</option>
+            <option value="Epilasyon">Epilasyon</option>
+        </optgroup>
+        
+        <optgroup label="Sağlık">
+            <option value="Doktor Randevusu">Doktor Randevusu</option>
+            <option value="Diyetisyen">Diyetisyen</option>
+            <option value="Fizyoterapi">Fizyoterapi</option>
+        </optgroup>
+        
+        <optgroup label="Spor & Fitness">
+            <option value="Spor Salonu">Spor Salonu</option>
+            <option value="Kişisel Antrenör">Kişisel Antrenör</option>
+            <option value="Yoga">Yoga</option>
+        </optgroup>
+        
+        <optgroup label="Eğitim">
+            <option value="Özel Ders">Özel Ders</option>
+            <option value="Dil Kursu">Dil Kursu</option>
+            <option value="Koçluk">Koçluk</option>
+        </optgroup>
+        
+        <optgroup label="Diğer">
+            <option value="Kafe/Restoran">Kafe/Restoran</option>
+            <option value="Toplantı">Toplantı</option>
+            <option value="Diğer">Diğer</option>
+        </optgroup>
+    </select>
+</div>
+<button id="createAppointmentBtn" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+    Randevu Oluştur
+</button>
+
+    <!-- Firebase ve Uygulama JS -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+    <script src="/js/randevu.js"></script>
+</body>
+</html>
