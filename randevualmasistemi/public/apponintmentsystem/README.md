@@ -1,5 +1,7 @@
 Firebase & Web Tabanlı Randevu Sistemi
-​Bu proje, temel web teknolojileri ve Firebase bulut altyapısı kullanılarak geliştirilmiş bir randevu yönetim sistemidir. Kullanıcıların dijital bir arayüz üzerinden randevu oluşturabilmesini ve bu verilerin bulut ortamında yönetilmesini amaçlar.
+
+​Bu proje, temel web teknolojileri ve Firebase bulut altyapısı kullanılarak geliştirilmiş bir randevu yönetim sistemidir. 
+Kullanıcıların dijital bir arayüz üzerinden randevu oluşturabilmesini ve bu verilerin bulut ortamında yönetilmesini amaçlar.
 ​🚀 Öne Çıkan Özellikler
 ​Dinamik Randevu Formu: Kullanıcı bilgilerini ve randevu detaylarını alan interaktif yapı.
 ​Firebase Entegrasyonu: Verilerin güvenli bir şekilde depolanması ve gerçek zamanlı yönetimi.
